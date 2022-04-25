@@ -1,0 +1,746 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+/*********************
+BREAKPOINT VARIABLES
+*********************/
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Typography
+
+Need to import a font or set of icons for your site? Drop them in
+here or just use this to establish your typographical grid. Or not.
+Do whatever you want to...GOSH!
+
+Helpful Articles:
+http://trentwalton.com/2012/06/19/fluid-type/
+http://ia.net/blog/responsive-typography-the-basics/
+http://alistapart.com/column/responsive-typography-is-a-physical-discipline
+
+******************************************************************/
+/*********************
+FONT FACE (IN YOUR FACE)
+*********************/
+/*
+  To embed your own fonts, use this syntax
+  and place your fonts inside the
+  lib/fonts folder. For more information
+  on embedding fonts, go to:
+  http://www.fontsquirrel.com/
+  Be sure to remove the comment brackets.
+*/
+/*
+  @font-face {
+      font-family: 'Font Name';
+      src: url('lib/fonts/font-name.eot');
+      src: url('lib/fonts/font-name.eot?#iefix') format('embedded-opentype'),
+             url('lib/fonts/font-name.woff') format('woff'),
+             url('lib/fonts/font-name.ttf') format('truetype'),
+             url('lib/fonts/font-name.svg#font-name') format('svg');
+      font-weight: normal;
+      font-style: normal;
+  }
+*/
+/*
+The following is based of Typebase:
+https://github.com/devinhunt/typebase.css
+I've edited it a bit, but it's a nice starting point.
+*/
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Variables
+
+Here is where we declare all our variables like colors, fonts,
+base values, and defaults. We want to make sure this file ONLY
+contains variables that way our files don't get all messy.
+No one likes a mess.
+
+*****************************************************************/
+/*********************
+COLORS
+Need help w/ choosing your colors? Try this site out:
+http://0to255.com/
+*********************/
+/*
+Here's a great tutorial on how to
+use color variables properly:
+http://sachagreif.com/sass-color-variables/
+*/
+button, input, optgroup, select, textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0; }
+
+input[type="checkbox"], input[type="radio"] {
+  box-sizing: border-box;
+  margin-right: 0.4375em;
+  padding: 0; }
+
+html {
+  font-family: sans-serif; }
+  html input[type="button"] {
+    cursor: pointer; }
+  html input[disabled] {
+    cursor: default;
+    opacity: .5; }
+
+body {
+  margin: 0; }
+  body * {
+    transition: border-color .2s, background-color .2s, color .1s; }
+
+article {
+  display: block; }
+
+aside {
+  display: block; }
+
+details {
+  display: block; }
+
+figcaption {
+  display: block; }
+
+figure {
+  display: block;
+  margin: 0; }
+
+footer {
+  display: block; }
+
+header {
+  display: block; }
+
+main {
+  display: block; }
+
+menu {
+  display: block; }
+
+nav {
+  display: block; }
+
+section {
+  display: block; }
+
+summary {
+  display: block; }
+
+audio {
+  display: inline-block;
+  vertical-align: baseline; }
+  audio:not([controls]) {
+    display: none;
+    height: 0; }
+
+canvas {
+  display: inline-block;
+  vertical-align: baseline; }
+
+progress {
+  display: inline-block;
+  vertical-align: baseline; }
+
+video {
+  display: inline-block;
+  vertical-align: baseline; }
+
+[hidden] {
+  display: none; }
+
+template {
+  display: none; }
+
+a {
+  background-color: transparent; }
+
+abbr[title] {
+  border-bottom: 1px dotted; }
+
+b {
+  font-weight: 700; }
+
+strong {
+  font-weight: 700; }
+
+small {
+  font-size: 80%; }
+
+sub {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+  bottom: -0.25em; }
+
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+  top: -0.5em; }
+
+img {
+  border: 0; }
+
+hr {
+  box-sizing: content-box; }
+
+code {
+  font-size: 1em; }
+
+kbd {
+  font-size: 1em; }
+
+pre {
+  font-size: 1em; }
+
+samp {
+  font-size: 1em; }
+
+button {
+  overflow: visible;
+  max-width: 100%;
+  cursor: pointer; }
+
+input {
+  max-width: 100%; }
+
+optgroup {
+  font-weight: bold; }
+
+select {
+  text-transform: none;
+  max-width: 100%; }
+
+textarea {
+  max-width: 100%;
+  overflow: auto;
+  vertical-align: top; }
+
+input[type="reset"] {
+  cursor: pointer; }
+
+input[type="submit"] {
+  font-family: canada-type-gibson, Helvetica Neue, Open Sans, sans-serif;
+  cursor: pointer; }
+
+button[disabled] {
+  cursor: default;
+  opacity: .5; }
+
+button::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+input[type="number"]::-webkit-inner-spin-button {
+  height: auto; }
+
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto; }
+
+fieldset {
+  border: 1px solid #d1d1d1;
+  margin: 0 0 1.75em;
+  padding: 0.875em; }
+  fieldset > :last-child {
+    margin-bottom: 0; }
+
+legend {
+  border: 0;
+  padding: 0; }
+
+svg:not(:root) {
+  overflow: hidden; }
+
+/* ==|== non-semantic helper classes ========================================
+   Please define your styles before this section.
+   ========================================================================== */
+/* Clearfix */
+.cf:before, .cf:after {
+  content: "";
+  display: table; }
+.cf:after {
+  clear: both; }
+
+/* For image replacement */
+.ir {
+  display: block;
+  border: 0;
+  text-indent: -999em;
+  overflow: hidden;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  text-align: left;
+  direction: ltr;
+  *line-height: 0; }
+
+.ir br {
+  display: none; }
+
+/* Hide from both screenreaders and browsers: h5bp.com/u */
+.hidden {
+  display: none !important;
+  visibility: hidden; }
+
+/* Hide only visually, but have it available for screenreaders: h5bp.com/v */
+.visuallyhidden, .screen-reader-text {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px; }
+
+/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p */
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto; }
+
+/* Hide visually and from screenreaders, but maintain layout */
+.invisible {
+  visibility: hidden; }
+
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Sass Functions
+
+You can do a lot of really cool things in Sass. Functions help you
+make repeated actions a lot easier. They are really similar to mixins,
+but can be used for so much more.
+
+Anyway, keep them all in here so it's easier to find when you're
+looking for one.
+
+For more info on functions, go here:
+http://sass-lang.com/documentation/Sass/Script/Functions.html
+
+******************************************************************/
+/*********************
+COLOR FUNCTIONS
+These are helpful when you're working
+with shadows and such things. It's essentially
+a quicker way to write RGBA.
+
+Example:
+box-shadow: 0 0 4px black(0.3);
+compiles to:
+box-shadow: 0 0 4px rgba(0,0,0,0.3);
+*********************/
+/*********************
+RESPONSIVE HELPER FUNCTION
+If you're creating a responsive site, then
+you've probably already read
+Responsive Web Design: http://www.abookapart.com/products/responsive-web-design
+
+Here's a nice little helper function for calculating
+target / context
+as mentioned in that book.
+
+Example:
+width: cp(650px, 1000px);
+or
+width: calc-percent(650px, 1000px);
+both compile to:
+width: 65%;
+*********************/
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Mixins Stylesheet
+
+This is where you can take advantage of Sass' great features: Mixins.
+I won't go in-depth on how they work exactly,
+there are a few articles below that will help do that. What I will
+tell you is that this will help speed up simple changes like
+changing a color or adding CSS3 techniques gradients.
+
+A WORD OF WARNING: It's very easy to overdo it here. Be careful and
+remember less is more.
+
+Helpful:
+http://sachagreif.com/useful-sass-mixins/
+http://thesassway.com/intermediate/leveraging-sass-mixins-for-cleaner-code
+http://web-design-weekly.com/blog/2013/05/12/handy-sass-mixins/
+
+******************************************************************/
+/*********************
+ FADE ANIMATION
+********************/
+@keyframes fade-in {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+@keyframes fade-out {
+  0% {
+    opacity: 0; }
+  5% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+/*********************
+STICKY FOOTER
+********************/
+/*********************
+TRANSITION
+*********************/
+/*
+I totally rewrote this to be cleaner and easier to use.
+You'll need to be using Sass 3.2+ for these to work.
+Thanks to @anthonyshort for the inspiration on these.
+USAGE: @include transition(all 0.2s ease-in-out);
+*/
+/*********************
+CSS3 GRADIENTS
+Be careful with these since they can
+really slow down your CSS. Don't overdo it.
+*********************/
+/* @include css-gradient(#dfdfdf,#f8f8f8); */
+/*********************
+BOX SIZING
+*********************/
+/*********************
+BULLSEYE Vertical and Horizontal Centering
+*********************/
+/* @include box-sizing(border-box); */
+/* NOTE: value of "padding-box" is only supported in Gecko. So
+probably best not to use it. I mean, were you going to anyway? */
+@keyframes fade-background {
+  0% {
+    background-color: #ffba3c; }
+  100% {
+    background-color: inherit; } }
+#quicklinks-container,
+#quicklinks {
+  pointer-events: auto; }
+  #quicklinks-container .quick-item.fade-background,
+  #quicklinks .quick-item.fade-background {
+    -webkit-animation: fade-background cubic-bezier(0, -0.01, 1, 0.4) 2s;
+    -moz-animation: fade-background cubic-bezier(0, -0.01, 1, 0.4) 2s;
+    animation: fade-background cubic-bezier(0, -0.01, 1, 0.4) 2s; }
+  #quicklinks-container .quick-icons,
+  #quicklinks .quick-icons {
+    display: none;
+    top: -1px;
+    position: absolute;
+    right: 0; }
+    #quicklinks-container .quick-icons a, #quicklinks-container .quick-icons button, #quicklinks-container .quick-icons i,
+    #quicklinks .quick-icons a,
+    #quicklinks .quick-icons button,
+    #quicklinks .quick-icons i {
+      position: relative;
+      width: auto;
+      background-image: none;
+      font-size: 20px;
+      margin: 0 5px 0 0;
+      top: -1px;
+      height: auto;
+      display: inline-block;
+      line-height: 1;
+      padding: 6px;
+      opacity: 1;
+      outline: none;
+      background-color: transparent;
+      border-color: transparent;
+      box-shadow: none;
+      color: #666666;
+      text-decoration: none; }
+      #quicklinks-container .quick-icons a:hover, #quicklinks-container .quick-icons button:hover, #quicklinks-container .quick-icons i:hover,
+      #quicklinks .quick-icons a:hover,
+      #quicklinks .quick-icons button:hover,
+      #quicklinks .quick-icons i:hover {
+        background-color: white;
+        border-color: transparent;
+        box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.15);
+        color: #1a1a1a;
+        opacity: 1; }
+      #quicklinks-container .quick-icons a:active, #quicklinks-container .quick-icons button:active, #quicklinks-container .quick-icons i:active,
+      #quicklinks .quick-icons a:active,
+      #quicklinks .quick-icons button:active,
+      #quicklinks .quick-icons i:active {
+        top: 1px; }
+      #quicklinks-container .quick-icons a .bts, #quicklinks-container .quick-icons button .bts, #quicklinks-container .quick-icons i .bts,
+      #quicklinks .quick-icons a .bts,
+      #quicklinks .quick-icons button .bts,
+      #quicklinks .quick-icons i .bts {
+        font-size: 17px;
+        margin: 0 4px; }
+      #quicklinks-container .quick-icons a.bt-spinner, #quicklinks-container .quick-icons a.bt-spinner:hover, #quicklinks-container .quick-icons button.bt-spinner, #quicklinks-container .quick-icons button.bt-spinner:hover, #quicklinks-container .quick-icons i.bt-spinner, #quicklinks-container .quick-icons i.bt-spinner:hover,
+      #quicklinks .quick-icons a.bt-spinner,
+      #quicklinks .quick-icons a.bt-spinner:hover,
+      #quicklinks .quick-icons button.bt-spinner,
+      #quicklinks .quick-icons button.bt-spinner:hover,
+      #quicklinks .quick-icons i.bt-spinner,
+      #quicklinks .quick-icons i.bt-spinner:hover {
+        pointer-events: none;
+        box-shadow: none;
+        background-color: transparent; }
+  #quicklinks-container i.quick-user-icon,
+  #quicklinks i.quick-user-icon {
+    background-color: transparent;
+    border-color: transparent;
+    cursor: default;
+    top: 0;
+    font-size: 22px;
+    opacity: 1; }
+    #quicklinks-container i.quick-user-icon.unsaved,
+    #quicklinks i.quick-user-icon.unsaved {
+      color: #ffba3c; }
+    #quicklinks-container i.quick-user-icon.saved,
+    #quicklinks i.quick-user-icon.saved {
+      color: #815DA7;
+      top: 0; }
+    #quicklinks-container i.quick-user-icon:hover,
+    #quicklinks i.quick-user-icon:hover {
+      color: none;
+      background-color: transparent;
+      box-shadow: none; }
+    #quicklinks-container i.quick-user-icon:active,
+    #quicklinks i.quick-user-icon:active {
+      top: 0; }
+
+#quicklinks {
+  display: block;
+  background-color: white;
+  position: relative; }
+  #quicklinks > div {
+    margin: 20px 60px 1em 20px; }
+  #quicklinks .quick-status {
+    cursor: default;
+    color: #6d5595; }
+    #quicklinks .quick-status .fade-out {
+      -webkit-animation: fade-out 7s cubic-bezier(0, -0.01, 1, 0.4);
+      -moz-animation: fade-out 7s cubic-bezier(0, -0.01, 1, 0.4);
+      animation: fade-out 7s cubic-bezier(0, -0.01, 1, 0.4);
+      animation-fill-mode: both; }
+  #quicklinks #ql-expandos:not(.is-expando) li.expando > .expando-content {
+    border-bottom: none; }
+  #quicklinks ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0; }
+    #quicklinks ul#quick-utility {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: stretch;
+      padding: 0; }
+      #quicklinks ul#quick-utility li {
+        flex: 1;
+        margin: 5px; }
+        #quicklinks ul#quick-utility li .btn {
+          width: 100%; }
+  #quicklinks .quick-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch; }
+    #quicklinks .quick-header > * {
+      flex: 1; }
+  #quicklinks .quick-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; }
+    #quicklinks .quick-content .col-wrapper {
+      flex-basis: 100%;
+      min-width: 200px;
+      flex-direction: column-reverse;
+      background-color: white; }
+      #quicklinks .quick-content .col-wrapper .col-header {
+        margin-bottom: .5em;
+        min-height: 2em; }
+        #quicklinks .quick-content .col-wrapper .col-header:before, #quicklinks .quick-content .col-wrapper .col-header:after {
+          content: "";
+          display: table; }
+        #quicklinks .quick-content .col-wrapper .col-header:after {
+          clear: both; }
+        #quicklinks .quick-content .col-wrapper .col-header .col-title {
+          float: left;
+          margin: 0 1em 0 0; }
+        #quicklinks .quick-content .col-wrapper .col-header .save-status {
+          float: left; }
+          #quicklinks .quick-content .col-wrapper .col-header .save-status.saved {
+            color: #7C5CB2; }
+          #quicklinks .quick-content .col-wrapper .col-header .save-status.unsaved {
+            color: #fbad18; }
+      #quicklinks .quick-content .col-wrapper ul.expandos li.expando .expando-content {
+        padding: 10px; }
+    #quicklinks .quick-content ul#static-links,
+    #quicklinks .quick-content ul#your-links {
+      min-height: 200px;
+      max-height: 300px;
+      list-style: none;
+      margin: 10px 0;
+      overflow-y: auto;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      border: 2px solid #efefef; }
+      #quicklinks .quick-content ul#static-links .quick-item,
+      #quicklinks .quick-content ul#your-links .quick-item {
+        position: relative;
+        cursor: move;
+        padding: 5px 0;
+        width: 100%;
+        border: 1px solid transparent; }
+        #quicklinks .quick-content ul#static-links .quick-item .title,
+        #quicklinks .quick-content ul#your-links .quick-item .title {
+          padding: 0 10px;
+          display: inline-block; }
+        #quicklinks .quick-content ul#static-links .quick-item:nth-child(even),
+        #quicklinks .quick-content ul#your-links .quick-item:nth-child(even) {
+          background: #e9edf4; }
+        #quicklinks .quick-content ul#static-links .quick-item.quick-cat,
+        #quicklinks .quick-content ul#your-links .quick-item.quick-cat {
+          background: white;
+          font-weight: bold; }
+          #quicklinks .quick-content ul#static-links .quick-item.quick-cat a.cancel-edit,
+          #quicklinks .quick-content ul#your-links .quick-item.quick-cat a.cancel-edit {
+            font-weight: normal; }
+        #quicklinks .quick-content ul#static-links .quick-item.active .quick-icons, #quicklinks .quick-content ul#static-links .quick-item:hover .quick-icons,
+        #quicklinks .quick-content ul#your-links .quick-item.active .quick-icons,
+        #quicklinks .quick-content ul#your-links .quick-item:hover .quick-icons {
+          background-color: rgba(255, 255, 255, 0.8);
+          display: block; }
+        #quicklinks .quick-content ul#static-links .quick-item form,
+        #quicklinks .quick-content ul#your-links .quick-item form {
+          display: none;
+          cursor: default;
+          padding: 5px 10px;
+          margin-top: 1em; }
+        #quicklinks .quick-content ul#static-links .quick-item.editing,
+        #quicklinks .quick-content ul#your-links .quick-item.editing {
+          border: 1px solid #e9edf4;
+          background: white;
+          box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.15);
+          padding: 10px; }
+          #quicklinks .quick-content ul#static-links .quick-item.editing form,
+          #quicklinks .quick-content ul#your-links .quick-item.editing form {
+            display: block; }
+          #quicklinks .quick-content ul#static-links .quick-item.editing .quick-icons,
+          #quicklinks .quick-content ul#your-links .quick-item.editing .quick-icons {
+            display: none; }
+    #quicklinks .quick-content #your-links {
+      overflow: auto; }
+  #quicklinks #quick-filter-input {
+    width: 100%;
+    float: none; }
+  #quicklinks form {
+    padding-left: 10px;
+    padding-top: 10px; }
+    #quicklinks form .quick-tool[data-tool="cancel-edit"] {
+      display: none; }
+    #quicklinks form.inline-edit .quick-tool[data-tool="cancel-edit"] {
+      display: inline-block; }
+    #quicklinks form .form-item {
+      margin-bottom: 10px;
+      float: left;
+      width: 100%; }
+    #quicklinks form label {
+      font-weight: bold;
+      display: block; }
+    #quicklinks form input[type=text],
+    #quicklinks form input[type=password] {
+      display: block; }
+    #quicklinks form .buttons {
+      text-align: right; }
+      #quicklinks form .buttons .btn {
+        min-width: 5em; }
+    #quicklinks form.submitting button {
+      pointer-events: none;
+      background-color: #9fa9b8;
+      box-shadow: none; }
+  #quicklinks .dismissible {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.6);
+    margin: 0;
+    padding: 70px 50px 50px;
+    width: 100%;
+    height: 100%;
+    z-index: 999999; }
+    #quicklinks .dismissible > * {
+      position: absolute;
+      max-width: 600px;
+      left: 10%;
+      right: 10%;
+      background: #fff;
+      box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.15);
+      padding: 55px; }
+    #quicklinks .dismissible button[data-tool="dismiss"] {
+      position: absolute;
+      border: none;
+      background: none;
+      right: .5em;
+      top: 0;
+      height: 2.5em;
+      width: 1.75em; }
+  #quicklinks #quick-filter {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    position: relative;
+    width: 100%; }
+  #quicklinks p.feedback {
+    text-align: right; }
+
+/*********************
+DESKTOP
+*********************/
+@media only screen and (min-width: 710px) {
+  #quicklinks {
+    background-color: transparent; }
+    #quicklinks > div {
+      margin: 35px 60px 35px 45px; }
+    #quicklinks .quick-header {
+      padding: 0; }
+    #quicklinks .quick-content .col-wrapper {
+      padding: 20px;
+      box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.15); }
+    #quicklinks label {
+      font-weight: bold;
+      width: 20%;
+      display: inline-block;
+      float: left; }
+    #quicklinks input[type=text],
+    #quicklinks input[type=password] {
+      width: 80%;
+      float: right; } }
+@media only screen and (min-width: 910px) {
+  #quicklinks .quick-header {
+    padding: 5px; }
+  #quicklinks .quick-content .col-wrapper {
+    flex-basis: 48%;
+    flex-direction: row;
+    margin: 0 auto; }
+  #quicklinks .quick-content ul#your-links {
+    max-height: 460px; }
+  #quicklinks .dismissible > * {
+    left: 25%;
+    right: 25%; } }
+
+/*# sourceMappingURL=quicklinks.css.map */

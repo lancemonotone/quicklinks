@@ -1,0 +1,153 @@
+<?php
+/*
+Purpose: Quick Link Editor (shadowbox)
+*/
+global $meerkat_ql ?>
+
+<div id="quicklinks">
+    <div class="quick-header">
+
+        {% if fn('is_super_admin') %}
+        <div id="cookie-tools">
+            <button aria-label="Show Cookies" class="btn quick-tool" data-tool="show-cookies">Show Cookies</button>
+            <button aria-label="Delete Cookies" class="btn quick-tool" data-tool="delete-cookies">Delete Cookies</button>
+        </div>
+        {% endif %}
+
+        <h2>Quick Links</h2>
+        <ul class="inline">
+            <li id="user-tab">
+                <button aria-label="Load Saved Links" class="btn quick-tool" data-tool="load-login-form">Load Saved Links</button>
+            </li>
+            <li id="restore">
+                <button aria-label="Restore Default Links" class="btn quick-tool" data-tool="restore-default-links">Restore Default Links</button>
+            </li>
+            <li id="help-tab">
+                <button aria-label="Help" class="btn quick-tool" data-tool="show-help">Help</button>
+            </li>
+        </ul>
+
+        <!-- USER -->
+        <div>
+            <!-- LOGGED IN -->
+            <div class="user-identified hidden">
+                <?php __( 'Welcome' ) ?> <span class="user-name"></span>.
+                <button aria-label="Logout" class="btn logout" href="javascript:void(0)">Logout</button>
+            </div>
+
+            <!-- NEW TO QUICK ACCESS -->
+            <div class="quick-help hidden">
+                <button aria-label="Hide help text" class="bts bt-times quick-tool" data-tool="dismiss-help">Hide help text</button>
+                <h4>Welcome to the Quick Links customization interface </h4>
+                <p>You may add, remove or organize the links in your Quick Links drop-down menu.
+                    All changes are saved immediately by your current web browser. To save changes
+                    permanently and make them available on any computer, you'll need to log in with
+                    your Williams user id and password.
+                    <a target="_new" href="http://wordpress.williams.edu/quick-links/">Read full documentation</a>
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="quick-content">
+        <!-- COLLEGE LINKS -->
+        <?php
+        $all_links = $meerkat_ql->load_all_links();
+        $links = '';
+        foreach ( $all_links as $link => $data ) {
+        $links .= <<<EOD
+        <li class="quick-item"><span class="title">{$data['title']}</span><span class="quick-icons"><a class="edit-me bts bt-external-link" target="_new" href="{$data['url']}"></a></span></li>
+        EOD;
+        }
+        ?>
+
+        <!-- COLLEGE LINKS -->
+        <div class="col-wrapper left-col" id="static-links">
+            <div class="above-list">
+                <h4>Suggested Williams Links</h4>
+                <p> Drag links from this column to the Your Links column.</p>
+                <input class="filter" type="text" name="quick-filter-input" id="quick-filter-input" title="Filter this list">
+            </div>
+            <ul id="data-list"><?php echo $links ?></ul>
+        </div>
+
+        <!-- CUSTOM LINK -->
+        <div class="col-wrapper left-col hidden" id="custom-link">
+            <h4>Add Custom Link</h4>
+            <p>Enter any URL and a descriptive title to add it to your quick links. </p>
+            <div class="custom-item-form-goes-here"></div>
+        </div>
+
+        <!-- CUSTOM CAT -->
+        <div class="col-wrapper left-col hidden" id="custom-cat">
+            <h4>Add Divider</h4>
+            <p> Add a section divider to help you organize your links. </p>
+            <div class="custom-item-form-goes-here cat-only"></div>
+        </div>
+
+        <!-- LOGIN -->
+        <div class="col-wrapper left-col hidden" id="login-form">
+            <h4>Login</h4>
+            <p class="login-instr-load quick-instr hidden">Any changes you've made have already been saved to your
+                current web browser. Additionally, if you log in to your Williams account, you can save and access your
+                links from any computer or web browser.</p>
+            <p class="quick-instr login-hint">Please log in with your Williams username and password.</p>
+            <p class="login-status hidden"></p>
+            <form id="ldap-login" name="login">
+                <div class="form-item">
+                    <label for="username">User</label>
+                    <input type="text" name="username" id="username" size="16" maxlength="48">
+                </div>
+                <div class="form-item">
+                    <label for="password">Pass</label>
+                    <input type="password" name="password" id="password" size="16" maxlength="48">
+                </div>
+                <input type="hidden" id="fx" name="fx" value=""/>
+                <div class="buttons">
+                    <button aria-label="Log In" class="btn quick-tool" data-tool="login">Log In</button>
+                    <button aria-label="Cancel" class="btn quick-tool" data-tool="college-links">Cancel</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- FORM TEMPLATE -->
+        <form class="custom-item-form hidden" id="custom-item-form-template">
+            <div class="form-item">
+                <label for="custom-item-title">Title</label>
+                <input type="text" name="custom-item-title" class="custom-item-title" value="" title="Item title">
+            </div>
+            <div class="form-item">
+                <label for="custom-item-url">URL</label>
+                <input type="text" class="custom-item-url" name="custom-item-url" value="" title="Item URL">
+            </div>
+            <div class="buttons">
+                <button aria-label="Add" class="btn quick-tool" data-tool="save-form">Add</button>
+                <button aria-label="Cancel" class="btn quick-tool" data-tool="cancel-edit">Cancel</button>
+            </div>
+        </form>
+
+        <!-- YOUR LINKS -->
+        <div class="col-wrapper right-col" id="preview-links">
+            <h4>Your Links</h4>
+            <p>Drag Suggested Williams links into this column.</p>
+            <ul class="inline">
+                <li>
+                    <button aria-label="Add Williams Link" class="btn quick-tool active" data-tool="college-links">Add Williams Link</button>
+                </li>
+                <li>
+                    <button aria-label="Add Custom Link" class="btn quick-tool" data-tool="custom-link">Add Custom Link</button>
+                </li>
+                <li>
+                    <button aria-label="Add Divider" class="btn quick-tool" data-tool="custom-cat">Add Divider</button>
+                </li>
+                <li>
+                    <button aria-label="Save links across all browsers" class="btn quick-tool" data-tool="login-form" title="Save links across all browsers">
+                        <span class="bts bt-upload"></span>
+                    </button>
+                </li>
+            </ul>
+            <ul id="your-links"></ul>
+        </div>
+
+    </div><!-- end .quick-content -->
